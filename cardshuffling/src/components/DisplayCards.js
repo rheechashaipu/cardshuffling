@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import shuffle from './ShuffleDeck.js'
 import MakeDeck from './MakeDeck.js';
+import './DisplayCards.css';
 
 
 class DisplayCards extends Component {
@@ -37,11 +38,7 @@ class DisplayCards extends Component {
         const displayOrdered = this.state.displayOrdered;
         const standardDeck = MakeDeck;
 
-        let displayedDeck;
-
-
         if (displayOrdered === true) {
-
 
             let displayedDeck = standardDeck.map((card, index) =>
             <div key={index}>
@@ -57,11 +54,13 @@ class DisplayCards extends Component {
                 <Button  onClick={this.shuffleCards}>
                     Shuffle
                 </Button>
+
                 {displayedDeck}
             </div>
             )
         }
         else {
+
             let displayedDeck = shuffle(standardDeck).map((card, index) =>
             <div key={index}>
                 {card.house} {card.rank}
@@ -75,6 +74,7 @@ class DisplayCards extends Component {
                 <Button  onClick={this.shuffleCards}>
                     Shuffle
                 </Button>
+
                 {displayedDeck}
             </div>
             )
