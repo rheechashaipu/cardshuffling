@@ -4,7 +4,7 @@ Button {
 
 
 .Menu {
-    background-image: linear-gradient(to top right, rgba(215, 233, 236, 0.8), rgba(71, 87, 179, 0.2));
+    background-image: linear-gradient(to bottom right, rgba(215, 233, 236, 0.8), rgba(71, 87, 179, 0.2));
     width: 90%;
     margin: 0 auto;
     margin-bottom: 15px;
@@ -28,7 +28,7 @@ Button {
 .PlayingCard{
     background-color: rgba(61, 79, 88, 0.1);
     height: 100px;
-    width: 100px;
+    width: 110px;
 
     display: flex;
     align-items: center;

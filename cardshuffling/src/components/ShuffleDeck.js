@@ -1,7 +1,8 @@
 function shuffle(arr) {
-    //  Note to self: Learn how to prevent array mutation
     /* spread operator creates a clone of the array that gets passed in.
     The cloned array is what gets shuffled and returned.
+
+    I think this is an implementation of the fisher-yates shuffle algorithm
     */
     let a =[...arr]
     let j, x, i;

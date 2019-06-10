@@ -4,14 +4,11 @@ import MakeDeck from './MakeDeck.js';
 import './DisplayCards.css';
 import { Button } from 'reactstrap';
 
-
 class DisplayCards extends Component {
     constructor(props){
         super(props);
-
         this.displayCardsInOrder = this.displayCardsInOrder.bind(this);
         this.shuffleCards = this.shuffleCards.bind(this);
-
         this.state = {
             displayOrdered: true
         };
@@ -32,6 +29,8 @@ class DisplayCards extends Component {
         let displayedDeck;
 
         if (displayOrdered === true) {
+            
+            //Note to self: Repeating this mapping functionality. Need to change this.
 
             displayedDeck = (standardDeck).map((card, index) =>
             <div key={index} className='PlayingCard'>
@@ -39,9 +38,7 @@ class DisplayCards extends Component {
             </div>
             );
         }
-
         else {
-
             displayedDeck = shuffle(standardDeck).map((card, index) =>
             <div key={index} className='PlayingCard'>
                 {card.house} {card.rank}
@@ -61,18 +58,16 @@ class DisplayCards extends Component {
                     </Button>
                     <div className='MenuText'>
                         {
-                            displayOrdered ? (<p>Deck in standard format</p>) : (
-                            <p>Deck is currently shuffled</p>
+                            displayOrdered ? (<b><p>Deck in standard format</p></b>) : (
+                                <b><p>Deck is currently shuffled</p></b>
                         )}                    
                         <p>Read 'cards' left to right. </p>
                     </div>
                 </div>
-
                 
                 <div className='CardArea'>
                     {displayedDeck}
                 </div>
-
             </div>
         );
     }
