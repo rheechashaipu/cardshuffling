@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
 import shuffle from './ShuffleDeck.js'
 import MakeDeck from './MakeDeck.js';
 import './DisplayCards.css';
+import { Button } from 'reactstrap';
 
 
 class DisplayCards extends Component {
@@ -36,15 +36,23 @@ class DisplayCards extends Component {
 
     render() {
         const displayOrdered = this.state.displayOrdered;
-        const standardDeck = MakeDeck;
+        let displayedDeck = MakeDeck;
+ 
+
 
         if (displayOrdered === true) {
-
+            displayedDeck = (displayedDeck).map((card, index) =>
+            <div key={index}>
+                {card.house} {card.rank}
+            </div>
+            );
+            /*
             let displayedDeck = standardDeck.map((card, index) =>
             <div key={index}>
                 {card.house} {card.rank}
             </div>)
 
+            
             return(
                 <div>
                 <Button onClick={this.displayCardsInOrder}>
@@ -58,9 +66,16 @@ class DisplayCards extends Component {
                 {displayedDeck}
             </div>
             )
+            */
         }
         else {
+            displayedDeck = shuffle(displayedDeck).map((card, index) =>
+            <div key={index}>
+                {card.house} {card.rank}
+            </div>
+            );
 
+            /*
             let displayedDeck = shuffle(standardDeck).map((card, index) =>
             <div key={index}>
                 {card.house} {card.rank}
@@ -77,9 +92,24 @@ class DisplayCards extends Component {
 
                 {displayedDeck}
             </div>
-            )
+            )*/
         }
 
+        return (
+
+            <div>
+                <Button onClick={this.displayCardsInOrder}>
+                    Display ordered deck
+                </Button>
+
+                <Button  onClick={this.shuffleCards}>
+                    Shuffle
+                </Button>
+
+                {displayedDeck}
+  
+            </div>
+        );
     }
 }
 
