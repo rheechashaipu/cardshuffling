@@ -59,12 +59,13 @@ class DisplayCards extends Component {
                     <Button  onClick={this.shuffleCards}>
                         Shuffle
                     </Button>
-                    {
-                        displayOrdered ? (<p>Deck in standard format</p>) : (
-                        <p>Deck is currently shuffled</p>
-                    )}                    
-                    <h2>Read 'cards' left to right. </h2>
-
+                    <div className='MenuText'>
+                        {
+                            displayOrdered ? (<p>Deck in standard format</p>) : (
+                            <p>Deck is currently shuffled</p>
+                        )}                    
+                        <p>Read 'cards' left to right. </p>
+                    </div>
                 </div>
 
                 
