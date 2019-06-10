@@ -1,10 +1,4 @@
-//every card will have the properties of a house and rank
-class Card {
-    constructor(house, rank) {
-        this.house = house;
-        this.rank = rank;
-    };
-}
+import Card from './Card.js';
 
 function MakeDeck() {
     const house = ['Spade', 'Hearts', 'Diamonds', 'Clover']
@@ -23,5 +17,4 @@ function MakeDeck() {
     return deck;
 }
 
-//make this available in other components
 export default MakeDeck();

@@ -26,88 +26,52 @@ class DisplayCards extends Component {
     }
 
 
-    displayDeck(arr){
-        arr.map((card, index) =>
-        <div key={index}>
-            {card.house} {card.rank}
-        </div>
-    )}
-
-
     render() {
         const displayOrdered = this.state.displayOrdered;
-        let displayedDeck = MakeDeck;
- 
-
+        let standardDeck = MakeDeck;
+        let displayedDeck;
 
         if (displayOrdered === true) {
-            displayedDeck = (displayedDeck).map((card, index) =>
-            <div key={index}>
+
+            displayedDeck = (standardDeck).map((card, index) =>
+            <div key={index} className='PlayingCard'>
                 {card.house} {card.rank}
             </div>
             );
-            /*
-            let displayedDeck = standardDeck.map((card, index) =>
-            <div key={index}>
-                {card.house} {card.rank}
-            </div>)
-
-            
-            return(
-                <div>
-                <Button onClick={this.displayCardsInOrder}>
-                    Display ordered deck
-                </Button>
-
-                <Button  onClick={this.shuffleCards}>
-                    Shuffle
-                </Button>
-
-                {displayedDeck}
-            </div>
-            )
-            */
         }
+
         else {
-            displayedDeck = shuffle(displayedDeck).map((card, index) =>
-            <div key={index}>
+
+            displayedDeck = shuffle(standardDeck).map((card, index) =>
+            <div key={index} className='PlayingCard'>
                 {card.house} {card.rank}
             </div>
             );
-
-            /*
-            let displayedDeck = shuffle(standardDeck).map((card, index) =>
-            <div key={index}>
-                {card.house} {card.rank}
-            </div>)
-            return(
-                <div>
-                <Button onClick={this.displayCardsInOrder}>
-                    Display ordered deck
-                </Button>
-
-                <Button  onClick={this.shuffleCards}>
-                    Shuffle
-                </Button>
-
-                {displayedDeck}
-            </div>
-            )*/
         }
 
         return (
 
             <div>
-                <Button onClick={this.displayCardsInOrder}>
-                    Display ordered deck
-                </Button>
+                <div className='Menu'>
+                    <Button onClick={this.displayCardsInOrder}>
+                        Display ordered deck
+                    </Button>
+                    <Button  onClick={this.shuffleCards}>
+                        Shuffle
+                    </Button>
+                    {
+                        displayOrdered ? (<p>Deck in standard format</p>) : (
+                        <p>Deck is currently shuffled</p>
+                    )}                    
+                    <h2>Read 'cards' left to right. </h2>
 
-                <Button  onClick={this.shuffleCards}>
-                    Shuffle
-                </Button>
+                </div>
 
-                {displayedDeck}
-  
+                
+                <div className='CardArea'>
+                    {displayedDeck}
+                </div>
+
             </div>
         );
     }

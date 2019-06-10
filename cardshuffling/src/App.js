@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import DisplayCards from './components/DisplayCards.js';
 
 function App() {
